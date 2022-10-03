@@ -1,0 +1,82 @@
+//함수 m,n 을 만든다.
+int m = minute();
+int h = hour();
+
+//클래스 호출
+PImage photo;
+
+void setup() {
+  size(750, 950);
+  background(245);
+  //photo 함수에 이미지를 저장한다
+  photo = loadImage("photo.JPEG");
+}
+
+void draw() {
+
+  noStroke();
+
+  //밑 버튼 바탕
+  fill(10);
+  rect(0, 870, 850, 100);
+
+  //아래 줄 3개
+  fill(255);
+  rect(85, 888, 50, 10);
+  rect(85, 903, 50, 10);
+  rect(85, 918, 50, 10);
+
+  //아래 홈 버튼
+  rect(350, 885, 50, 50);
+  fill(10);
+  rect(357.5, 893, 35, 35);
+
+  //아래 돌아가기 버튼
+  fill(255);
+  ellipse(645, 910, 55, 55);
+  fill(10);
+  ellipse(620, 908.5, 50, 50);
+
+  //위 카메라 바탕
+  rect(0, 0, 850, 70);
+
+  //위 카메라
+  fill(245);
+  ellipse(370, 33, 50, 50);
+  fill(200);
+  ellipse(370, 33, 30, 30);
+
+  //시간
+  fill(190);
+  textSize(150);
+  text(h, 150, 350);
+  text(":", 350, 350);
+  text(m, 450, 350);
+
+  //click!
+  textSize(75);
+  text("CLICK!", 275, 600);
+
+  //right click!
+  fill(245);
+  text("RIGHT CLICK!", 175, 500);
+}
+
+void mousePressed() {
+  //만약 마우스 좌클릭을 했다면 배경화면으로 전환
+  if (mouseButton==LEFT) {
+    background(190);
+    fill(198, 27, 71);
+    rect(300, 650, 150, 150, 60);
+    fill(229);
+    rect(320, 690, 110, 75, 20);
+    fill(163, 0, 46);
+    ellipse(375, 725, 35, 35);
+    fill(181, 25, 66);
+    ellipse(410, 705, 16, 16);
+    
+    //아니라면 마우스 우클릭을 했을때 이미지 불러오기
+  } else if (mouseButton==RIGHT) {
+    image(photo, 0, -10, 750, 1000);
+  }
+}
