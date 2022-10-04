@@ -2,14 +2,24 @@
 int m = minute();
 int h = hour();
 
-//클래스 호출
+//포토 클래스 호출
 PImage photo;
 
 void setup() {
   size(750, 950);
   background(245);
-  //photo 함수에 이미지를 저장한다
   photo = loadImage("photo.JPEG");
+
+  //시간
+  fill(190);
+  textSize(150);
+  text(h, 150, 350);
+  text(":", 350, 350);
+  text(m, 450, 350);
+
+  //click!
+  textSize(75);
+  text("CLICK!", 275, 600);
 }
 
 void draw() {
@@ -45,21 +55,6 @@ void draw() {
   ellipse(370, 33, 50, 50);
   fill(200);
   ellipse(370, 33, 30, 30);
-
-  //시간
-  fill(190);
-  textSize(150);
-  text(h, 150, 350);
-  text(":", 350, 350);
-  text(m, 450, 350);
-
-  //click!
-  textSize(75);
-  text("CLICK!", 275, 600);
-
-  //right click!
-  fill(245);
-  text("RIGHT CLICK!", 175, 500);
 }
 
 void mousePressed() {
@@ -74,7 +69,12 @@ void mousePressed() {
     ellipse(375, 725, 35, 35);
     fill(181, 25, 66);
     ellipse(410, 705, 16, 16);
-    
+
+    //right click!
+    fill(245);
+    text("RIGHT CLICK!", 175, 500);
+
+
     //아니라면 마우스 우클릭을 했을때 이미지 불러오기
   } else if (mouseButton==RIGHT) {
     image(photo, 0, -10, 750, 1000);
