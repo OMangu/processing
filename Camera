@@ -8,7 +8,7 @@ PImage photo;
 void setup() {
   size(750, 950);
   background(245);
-  photo = loadImage("photo.JPEG");
+  photo = loadImage("photo.PNG");
 
   //시간
   fill(190);
@@ -78,5 +78,9 @@ void mousePressed() {
     //아니라면 마우스 우클릭을 했을때 이미지 불러오기
   } else if (mouseButton==RIGHT) {
     image(photo, 0, -10, 750, 1000);
+    fill(255);
+
+    //사진 찍는 버튼(실행 안됨);
+    ellipse(375, 800, 100, 100);
   }
 }
